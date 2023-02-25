@@ -1,6 +1,6 @@
 """This module is created to parse the json from Spotify.
 
-This module works with jsin file which is obtained using the Spotify API.
+This module works with json file which is obtained using the Spotify API.
 To run this module the user must enter the name of the artist.
 Using this name the module can search for artist name, artist ID,
 the most popular song of the artist and available markets for this
