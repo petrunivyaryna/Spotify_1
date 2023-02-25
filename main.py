@@ -91,7 +91,7 @@ def get_song(artist_id: str) -> str:
     return json_result[0]["name"]
 
 
-def get_available_markets(song, artist_id):
+def get_available_markets(song: str, artist_id: str):
     """
     This function should return all countries where you can listen
     to the most popular song of the artist. It finds information about
@@ -114,7 +114,7 @@ def get_available_markets(song, artist_id):
     return None
 
 
-def print_information(name_artist):
+def print_information(name_artist: str):
     """
     This function is created to display the data that the user wants to view.
     """
