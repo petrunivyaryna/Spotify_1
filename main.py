@@ -19,6 +19,7 @@ load_dotenv()
 client_id = os.getenv("CLIENT_ID")
 client_secret = os.getenv("CLIENT_SECRET")
 
+
 def get_token():
     """
     This function should access token, which is used to
@@ -113,14 +114,32 @@ def get_available_markets(song, artist_id):
     return None
 
 
-# my_token = get_token()
-# name_of_artist = input("Enter the name of the artist: ")
-# artist_name = search_for_artist(name_of_artist)[0]
-# artist_id = search_for_artist(name_of_artist)[1]
-# most_popular_song = get_song(artist_id)
-# available_markets = get_available_markets(most_popular_song, artist_id)
+def print_information(name_artist):
+    """
+    This function is created to display the data that the user wants to view.
+    """
+    artist_name = search_for_artist(name_artist)[0]
+    artist_id = search_for_artist(name_artist)[1]
+    most_popular_song = get_song(artist_id)
+    available_markets = get_available_markets(most_popular_song, artist_id)
+    dictionary = {'1': f"Artist's name: {artist_name}", '2': f"{artist_name}'s ID: {artist_id}",'3':
+                 f"{artist_name}'s most popular song: {most_popular_song}", '4': available_markets}
 
+    print(f"The information you can see:\
+          \n1. Artist's name\n2. {artist_name}'s ID\
+          \n3. The most popular {artist_name}'s song\
+          \n4. Available markets for {artist_name}'s most popular song\n")
+    to_print = input("Write down the number (if you want to choose several numbers, \
+just write them using comma): ")
+    for key in list(dictionary.keys()):
+        if key in to_print:
+            if key != '4':
+                print(dictionary[key] + '\n')
+            else:
+                num_of_markets = input(f"There are {len(available_markets)} \
+available markets for {artist_name}'s most popular song.\
+                                       \nHow many of them you wanna see? (write down a number): ")
+                print(f"Available markets: {dictionary[key][:int(num_of_markets)]}")
 
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose = True)
+name_of_artist = input("Enter the name of the artist: ")
+print_information(name_of_artist)
