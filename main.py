@@ -186,21 +186,26 @@ available markets for {artist_name}'s most popular song.\
                 num_of_albums = input(f"\nThere are {len(albums)} albums written by {artist_name}.\
                                        \nHow many of them you wanna see? (write down a number): ")
                 print(f"{artist_name}'s albums:")
-                for ind, album in enumerate(albums[:int(num_of_albums)]):
-                    print(f"{ind + 1}. {album[0]}")
-                    albumss[str(ind + 1)] = album
+                ind = 97
+                for album in albums[:int(num_of_albums)]:
+                    print(f"{chr(ind)}. {album[0]}")
+                    albumss[chr(ind)] = album
+                    ind += 1
                 yes_no = input("\nDo you want to see which songs are on a particular album? \
 (write down a number: 1 - yes, 2 - no): ")
                 if yes_no == '1':
-                    num_albums = input("Choose the album (if you want to choose several albums, \
+                    num_albums = input("Choose the album using letters (if you want to choose several albums, \
 just write them using comma): ")
+                    print(num_albums)
                     for key in list(albumss.keys()):
                         if key in num_albums:
                             print(f"{albumss[key][0]}'s songs:")
                             songs = get_song_from_album(albumss[key][1])
                             for ind, song in enumerate(songs):
-                                print(f"{ind + 1}. {song}")
-                            print("\n")
+                                if song == songs[-1]:
+                                    print(f"{ind + 1}. {song}\n")
+                                else:
+                                    print(f"{ind + 1}. {song}")
             else:
                 print(dictionary[key] + '\n')
 
