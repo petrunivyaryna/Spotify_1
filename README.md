@@ -58,3 +58,5 @@ To create this module I used lots of modules such as:
 * json (to get the information from json file)
 * requests (to get the information from Spotify)
 * dotenv
+
+All modules that need to be installed to use my program are in the file **requirements.txt**.
