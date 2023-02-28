@@ -196,7 +196,6 @@ available markets for {artist_name}'s most popular song.\
                 if yes_no == '1':
                     num_albums = input("Choose the album using letters (if you want to choose \
 several albums, just write them using comma): ")
-                    print(num_albums)
                     for key in list(albumss.keys()):
                         if key in num_albums:
                             print(f"{albumss[key][0]}'s songs:")
